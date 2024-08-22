@@ -8,4 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
+
+    public function publisher() {
+        return $this->belongsTo('App\Models\Publisher', 'publisher_id');
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
+    }
+
+    public function catalog()
+    {
+        return $this->belongsTo(Catalog::class);
+    }
+
+    public function transactionDetails()
+    {
+        return $this->hasMany(TransactionDetail::class);
+    }
 }
