@@ -12,7 +12,8 @@ class CatalogController extends Controller
      */
     public function index()
     {
-        return view('admin.catalog.index');
+        $catalogs = Catalog::with('books')->get();
+        return view('admin.catalog.index', compact('catalogs'));
     }
 
     /**
@@ -20,7 +21,7 @@ class CatalogController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.catalog.create');
     }
 
     /**
@@ -28,7 +29,16 @@ class CatalogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        $catalog = new Catalog;
+
+        $catalog->name = $request->name;
+        $catalog->save();
+
+        return redirect('catalog');
     }
 
     /**
@@ -44,7 +54,7 @@ class CatalogController extends Controller
      */
     public function edit(Catalog $catalog)
     {
-        //
+        return view('admin.catalog.edit', compact('catalog'));
     }
 
     /**
@@ -52,7 +62,13 @@ class CatalogController extends Controller
      */
     public function update(Request $request, Catalog $catalog)
     {
-        //
+        $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        $catalog->update($request->all());
+
+        return redirect('catalog');
     }
 
     /**
@@ -60,6 +76,8 @@ class CatalogController extends Controller
      */
     public function destroy(Catalog $catalog)
     {
-        //
+        $catalog->delete();
+
+        return redirect('catalog');
     }
 }

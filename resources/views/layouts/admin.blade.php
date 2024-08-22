@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{ asset('lte/plugins/daterangepicker/daterangepicker.css') }}">
 
     <link rel="stylesheet" href="{{ asset('lte/plugins/summernote/summernote-bs4.min.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.0/css/fontawesome.min.css">
   </head>
 
   <body class="hold-transition sidebar-mini layout-fixed">
@@ -48,12 +50,6 @@
             <div class="row mb-2">
               <div class="col-sm-6">
                 <h1 class="m-0">@yield('title')</h1>
-              </div>
-              <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">@yield('title')</li>
-                </ol>
               </div>
             </div>
           </div>
@@ -106,8 +102,6 @@
     <script src="{{ asset('lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 
     <script src="{{ asset('lte/dist/js/adminlte.js?v=3.2.0') }}"></script>
-
-    <script src="{{ asset('lte/dist/js/demo.js') }}"></script>
 
     <script src="{{ asset('lte/dist/js/pages/dashboard.js') }}"></script>
   </body>
