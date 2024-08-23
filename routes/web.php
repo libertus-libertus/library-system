@@ -28,3 +28,8 @@ Route::resource('/catalog', App\Http\Controllers\CatalogController::class);
 Route::resource('/author', App\Http\Controllers\AuthorController::class);
 Route::resource('/publisher', App\Http\Controllers\PublisherController::class);
 Route::resource('/member', App\Http\Controllers\MemberController::class);
+
+Route::get('/api/author', [App\Http\Controllers\AuthorController::class, 'api']);
+Route::get('/api/publisher', [App\Http\Controllers\PublisherController::class, 'api']);
+Route::get('/api/member', [App\Http\Controllers\MemberController::class, 'api']);
+Route::get('/api/catalog', [App\Http\Controllers\CatalogController::class, 'api']);

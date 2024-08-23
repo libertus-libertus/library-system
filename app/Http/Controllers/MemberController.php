@@ -12,8 +12,16 @@ class MemberController extends Controller
      */
     public function index()
     {
+        return view('admin.member');
+    }
+
+    // API
+    public function api()
+    {
         $members = Member::all();
-        return view('admin.member', compact('members'));
+        $datatables = datatables()->of($members)->addIndexColumn();
+
+        return $datatables->make(true);
     }
 
     public function store(Request $request)

@@ -13,20 +13,9 @@
 
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
-    <link rel="stylesheet"
-      href="{{ asset('lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('lte/plugins/jqvmap/jqvmap.min.css') }}">
-
     <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css?v=3.2.0') }}">
 
     <link rel="stylesheet" href="{{ asset('lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('lte/plugins/daterangepicker/daterangepicker.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('lte/plugins/summernote/summernote-bs4.min.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css">
     @yield('css')
@@ -83,22 +72,6 @@
     </script>
 
     <script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <script src="{{ asset('lte/plugins/chart.js/Chart.min.js') }}"></script>
-
-    <script src="{{ asset('lte/plugins/sparklines/sparkline.js') }}"></script>
-
-    <script src="{{ asset('lte/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-    <script src="{{ asset('lte/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-
-    <script src="{{ asset('lte/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-
-    <script src="{{ asset('lte/plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('lte/plugins/daterangepicker/daterangepicker.js') }}"></script>
-
-    <script src="{{ asset('lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-
-    <script src="{{ asset('lte/plugins/summernote/summernote-bs4.min.js') }}"></script>
 
     <script src="{{ asset('lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 
