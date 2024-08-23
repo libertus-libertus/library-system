@@ -7,59 +7,52 @@ use Illuminate\Http\Request;
 
 class PublisherController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        return view('admin.publisher.index');
+        $publishers = Publisher::all();
+        return view('admin.publisher', compact('publishers'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required',
+            'address' => 'required',
+        ]);
+
+        $publisher = new Publisher;
+        $publisher->name = $request->name;
+        $publisher->email = $request->email;
+        $publisher->phone_number = $request->phone_number;
+        $publisher->address = $request->address;
+
+        $publisher->save();
+        return redirect('publisher');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Publisher $publisher)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Publisher $publisher)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Publisher $publisher)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required',
+            'address' => 'required',
+        ]);
+
+        $publisher->update($request->all());
+        return redirect('publisher');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Publisher $publisher)
     {
-        //
+        $publisher->delete();
+        return redirect('publisher');
     }
 }

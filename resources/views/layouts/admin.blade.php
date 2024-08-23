@@ -28,7 +28,8 @@
 
     <link rel="stylesheet" href="{{ asset('lte/plugins/summernote/summernote-bs4.min.css') }}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.0/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css">
+    @yield('css')
   </head>
 
   <body class="hold-transition sidebar-mini layout-fixed">
@@ -102,8 +103,11 @@
     <script src="{{ asset('lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 
     <script src="{{ asset('lte/dist/js/adminlte.js?v=3.2.0') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script src="{{ asset('lte/dist/js/pages/dashboard.js') }}"></script>
+    @yield('js')
   </body>
 
 </html>

@@ -30,6 +30,15 @@
               Catalog
             </p>
           </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ url('book') }}" class="nav-link btn-sm {{ request()->is('book') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Books
+              </p>
+            </a>
+          </li>
         <li class="nav-item">
           <a href="{{ url('author') }}" class="nav-link btn-sm {{ request()->is('author') ? 'active' : '' }}">
             <i class="nav-icon fas fa-user"></i>
@@ -47,14 +56,6 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ url('book') }}" class="nav-link btn-sm {{ request()->is('book') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-book"></i>
-            <p>
-              Books
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
           <a href="{{ url('member') }}" class="nav-link btn-sm {{ request()->is('member') ? 'active' : '' }}">
             <i class="nav-icon fas fa-users"></i>
             <p>
@@ -64,7 +65,7 @@
         </li>
         <li class="nav-header text-sm">REPORT</li>
         <li class="nav-item">
-          <a href="{{ url('member') }}" class="nav-link btn-sm {{ request()->is('member') ? 'active' : '' }}">
+          <a href="{{ url('transaction') }}" class="nav-link btn-sm {{ request()->is('transaction') ? 'active' : '' }}">
             <i class="nav-icon fas fa-chart-bar"></i>
             <p>
               Transactions

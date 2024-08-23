@@ -7,13 +7,17 @@ use Illuminate\Http\Request;
 
 class CatalogController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $catalogs = Catalog::with('books')->get();
-        return view('admin.catalog.index', compact('catalogs'));
+        return view('admin.catalog', compact('catalogs'));
     }
 
     /**

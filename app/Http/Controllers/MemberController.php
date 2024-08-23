@@ -12,47 +12,43 @@ class MemberController extends Controller
      */
     public function index()
     {
-        return view('admin.member.index');
+        $members = Member::all();
+        return view('admin.member', compact('members'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'gender' => 'required',
+            'phone_number' => 'required',
+            'address' => 'required',
+        ]);
+
+        $member = new Member;
+        $member->name = $request->name;
+        $member->email = $request->email;
+        $member->gender = $request->gender;
+        $member->phone_number = $request->phone_number;
+        $member->address = $request->address;
+
+        $member->save();
+        return redirect('member');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Member $member)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Member $member)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Member $member)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'gender' => 'required',
+            'phone_number' => 'required',
+            'address' => 'required',
+        ]);
+
+        $member->update($request->all());
+        return redirect('member');
     }
 
     /**
@@ -60,6 +56,7 @@ class MemberController extends Controller
      */
     public function destroy(Member $member)
     {
-        //
+        $member->delete();
+        return redirect('member');
     }
 }
