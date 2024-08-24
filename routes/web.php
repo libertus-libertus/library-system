@@ -21,13 +21,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/book', [App\Http\Controllers\BookController::class, 'index']);
+Route::get('/transaction', [App\Http\Controllers\TransacationController::class, 'index']);
 
 // crud operasi - resource
 Route::resource('/catalog', App\Http\Controllers\CatalogController::class);
 Route::resource('/author', App\Http\Controllers\AuthorController::class);
 Route::resource('/publisher', App\Http\Controllers\PublisherController::class);
 Route::resource('/member', App\Http\Controllers\MemberController::class);
+
+Route::resource('/book', App\Http\Controllers\BookController::class);
+Route::delete('/book/{id}', [App\Http\Controllers\BookController::class, 'destroy']);
+Route::get('/api/book', [App\Http\Controllers\BookController::class, 'api']);
+
 
 Route::get('/api/author', [App\Http\Controllers\AuthorController::class, 'api']);
 Route::get('/api/publisher', [App\Http\Controllers\PublisherController::class, 'api']);
