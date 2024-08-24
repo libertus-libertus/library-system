@@ -38,24 +38,14 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                <label class="form-check-label" for="remember">
-                    {{ __('Remember Me') }}
-                </label>
-            </div>
-          </div>
-
-          <div class="col-4">
+          <div class="col">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
 
         </div>
       </form>
       <p class="mb-0">
-        <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
+        <a href="{{ route('register') }}" class="text-center d-block mt-3">Belum punya akun</a>
       </p>
     </div>
   </div>
