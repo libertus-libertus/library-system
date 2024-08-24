@@ -177,6 +177,7 @@
                     axios.delete(`${actionUrl}/${id}`).then(response => {
                         alert("Data berhasil dihapus!");
                         location.reload();
+                        this.get_books();
                     });
                     }
                 },

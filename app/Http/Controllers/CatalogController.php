@@ -21,7 +21,11 @@ class CatalogController extends Controller
     public function api()
     {
         $catalogs = Catalog::all();
-        $datatables = datatables()->of($catalogs)->addIndexColumn();
+
+        $datatables = datatables()->of($catalogs)
+                        ->addColumn('date', function($catalog) {
+                            return formatWaktu($catalog->created_at);
+                        })->addIndexColumn();
 
         return $datatables->make(true);
     }

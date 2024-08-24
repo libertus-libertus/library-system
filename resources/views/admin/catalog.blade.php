@@ -25,6 +25,7 @@
                 <tr>
                   <th style="width: 10px">No</th>
                   <th>Katalog</th>
+                  <th>Waktu</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
@@ -88,6 +89,7 @@
     var columns = [
         { data: 'DT_RowIndex', class: 'text-center', orderable: true },
         { data: 'name', class: 'text-left', orderable: false },
+        { data: 'date', class: 'text-left', orderable: false },
         { render: function( index, row, data, meta ) {
           return `
                 <a href="#" class="btn btn-warning btn-xs btn-flat" onclick="controller.ubahData(event, ${meta.row})">
