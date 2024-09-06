@@ -78,8 +78,6 @@
     <script src="{{ asset('lte/dist/js/adminlte.js?v=3.2.0') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-    <script src="{{ asset('lte/dist/js/pages/dashboard.js') }}"></script>
     @yield('js')
   </body>
 

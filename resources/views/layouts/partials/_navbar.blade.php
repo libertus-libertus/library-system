@@ -13,7 +13,7 @@
     <li class="nav-item">
       <form action="{{ route('logout') }}" method="post" style="display: inline;">
         @csrf
-        <button type="submit" class="btn btn-danger rounded-5 btn-xs" href="#">
+        <button type="submit" class="btn" href="#">
           <i class="fas fa-sign-out-alt"></i> Sign out
         </button>
       </form>

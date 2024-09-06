@@ -18,7 +18,7 @@ class AdminController extends Controller
         $total_penerbit = Publisher::count();
 
         $data_donut = Book::select(DB::raw("COUNT(publisher_id) as Total"))->groupBy('publisher_id')->orderBy('publisher_id', 'asc')->pluck('total');
-        $data_donut = Publisher::orderBy('publishers.id', 'asc')->join('books', 'books.publisher_id', '=', 'publishers.id')->groupBy('name')->pluck('name');
+        $label_donut = Publisher::orderBy('publishers.id', 'asc')->join('books', 'books.publisher_id', '=', 'publishers.id')->groupBy('name')->pluck('name');
 
         $label_bar = ['Peminjaman'];
         $data_bar = [];
@@ -35,7 +35,9 @@ class AdminController extends Controller
             $data_bar[$key]['data'] = $data_month;
         }
 
-        return view('home', compact('total_anggota', 'total_buku', 'total_penerbit', 'total_peminjaman'));
+        dd($data_donut);
+
+        return view('home', compact('total_anggota', 'total_buku', 'total_penerbit', 'total_peminjaman', 'data_donut', 'label_donut'));
     }
 
 
