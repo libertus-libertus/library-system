@@ -16,9 +16,14 @@ class MemberController extends Controller
     }
 
     // API
-    public function api()
+    public function api(Request $request)
     {
-        $members = Member::all();
+        if ($request->gender) {
+            $members = Member::where('gender', $request->gender)->get();
+        } else {
+            $members = Member::all();
+        }
+
         $datatables = datatables()->of($members)->addIndexColumn();
 
         return $datatables->make(true);

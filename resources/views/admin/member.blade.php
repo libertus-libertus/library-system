@@ -10,31 +10,37 @@
 
 @section('content')
   <div id="controller">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-10">
             <a href="#" @click="tambahData()" class="btn btn-primary btn-xs btn-flat">
               <i class="fa fa-plus-circle"> Tambah Member</i>
             </a>
           </div>
-
-          <div class="card-body">
-            <table id="datatable" class="table table-bordered">
-              <thead>
-                <tr>
-                  <th style="width: 10px">No</th>
-                  <th>Nama Member</th>
-                  <th>Email</th>
-                  <th class="text-center">JK</th>
-                  <th>Nomor Hp</th>
-                  <th>Alamat</th>
-                  <th class="text-center">Aksi</th>
-                </tr>
-              </thead>
-            </table>
+          <div class="col-md-2">
+            <select class="form-control" name="gender" id="">
+              <option value="0">Semua Jenis Kelamin</option>
+              <option value="P">Perempuan</option>
+              <option value="L">Laki-Laki</option>
+            </select>
           </div>
         </div>
+      </div>
+      <div class="card-body">
+        <table id="datatable" class="table table-bordered">
+          <thead>
+            <tr>
+              <th style="width: 10px">No</th>
+              <th>Nama Member</th>
+              <th>Email</th>
+              <th class="text-center">JK</th>
+              <th>Nomor Hp</th>
+              <th>Alamat</th>
+              <th class="text-center">Aksi</th>
+            </tr>
+          </thead>
+        </table>
       </div>
     </div>
 
@@ -109,15 +115,39 @@
     var actionUrl = '{{ url('member') }}';
     var apiUrl = '{{ url('api/member') }}';
 
-    var columns = [
-        { data: 'DT_RowIndex', class: 'text-center', orderable: true },
-        { data: 'name', class: 'text-left', orderable: false },
-        { data: 'email', class: 'text-left', orderable: false },
-        { data: 'gender', class: 'text-center', orderable: false },
-        { data: 'phone_number', class: 'text-left', orderable: false },
-        { data: 'address', class: 'text-left', orderable: false },
-        { render: function(index, row, data, meta) {
-            return `
+    var columns = [{
+        data: 'DT_RowIndex',
+        class: 'text-center',
+        orderable: true
+      },
+      {
+        data: 'name',
+        class: 'text-left',
+        orderable: false
+      },
+      {
+        data: 'email',
+        class: 'text-left',
+        orderable: false
+      },
+      {
+        data: 'gender',
+        class: 'text-center',
+        orderable: false
+      },
+      {
+        data: 'phone_number',
+        class: 'text-left',
+        orderable: false
+      },
+      {
+        data: 'address',
+        class: 'text-left',
+        orderable: false
+      },
+      {
+        render: function(index, row, data, meta) {
+          return `
                 <a href="#" class="btn btn-warning btn-xs btn-flat" onclick="controller.ubahData(event, ${meta.row})">
                     <i class="fa fa-edit"></i>
                 </a>
@@ -125,8 +155,23 @@
                     <i class="fa fa-times"></i>
                 </a>
             `
-        }, orderable: false, width: '200px', class: 'text-center' },
+        },
+        orderable: false,
+        width: '200px',
+        class: 'text-center'
+      },
     ];
   </script>
   <script src="{{ asset('js/data.js') }}"></script>
+  <script type="text/javascript">
+    $('select[name=gender]').on('change', function() {
+        gender = $('select[name=gender]').val();
+
+        if (gender == 0) {
+            controller.table.ajax.url(actionUrl).load();
+        } else {
+            controller.table.ajax.url(actionUrl+'?gender='+gender).load();
+        }
+    });
+  </script>
 @endsection

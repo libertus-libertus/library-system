@@ -7,9 +7,10 @@ use App\Models\Book;
 use App\Models\Member;
 use App\Models\Publisher;
 use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
-use Spatie\Permission\Contracts\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role as ModelsRole;
 
 class HomeController extends Controller
 {
@@ -55,5 +56,22 @@ class HomeController extends Controller
         // return $data_bar;
 
         return view('home', compact('total_anggota', 'total_buku', 'total_penerbit', 'total_pengarang', 'data_donut', 'label_donut', 'data_bar'));
+    }
+
+    public function test_spatie()
+    {
+        // $role = ModelsRole::create(['name' => 'petugas']);
+        // $permission = Permission::create(['name' => 'index peminjaman']);
+
+        // $role->givePermissionTo($permission);
+        // $permission->assignRole($role);
+
+        // $user = auth()->user();
+        // $user->assignRole('petugas');
+
+        // return $user;
+
+        // $user = User::with('roles')->get();
+        // return $user;
     }
 }
